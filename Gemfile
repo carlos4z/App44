@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'rails_12factor', group: :production
 gem 'pg', group: :production
 
+gem 'carrierwave'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 
