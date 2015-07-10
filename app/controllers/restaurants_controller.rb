@@ -1,4 +1,7 @@
 class RestaurantsController < ApplicationController
+
+  before_action :authenticate_user!, :except => [:show, :index]
+
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   # GET /restaurants

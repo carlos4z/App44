@@ -1,41 +1,55 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+<div class="row">
+  <div class="col-md-8">
+    
+    <p>
+      <strong>Name:</strong>
+      <%= @restaurant.name %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @restaurant.description %>
+    </p>
+
+    <p>
+      <strong>Address:</strong>
+      <%= @restaurant.address %>
+    </p>
+
+    <p>
+      <strong>City:</strong>
+      <%= @restaurant.city %>
+    </p>
+
+    <p>
+      <strong>State:</strong>
+      <%= @restaurant.state %>
+    </p>
+
+    <p>
+      <strong>Telephone:</strong>
+      <%= @restaurant.telephone %>
+    </p>
+
+    <iframe width="600" height="350" frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDyoeM69SUh2MjwY-umS31ntvpkc5uFpog&q=<%= @restaurant.address.parameterize + @restaurant.city.parameterize %>&zoom=14"></iframe> 
+
+  </div>
+
+  <div class="col-md-4">
+
+    <p>You do not have any reservation open at this restaurant.</p>
+    <p><button type="button" class="btn btn-success">Book a table</button></p>
+
+  </div>
+</div>
 
 <p>
-  <strong>Description:</strong>
-  <%= @restaurant.description %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @restaurant.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @restaurant.state %>
-</p>
-
-<p>
-  <strong>Telephone:</strong>
-  <%= @restaurant.telephone %>
-</p>
-
-<iframe width="600" height="350" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDyoeM69SUh2MjwY-umS31ntvpkc5uFpog&q=<%= @restaurant.address.parameterize + @restaurant.city.parameterize %>&zoom=14"></iframe> 
-
-<p>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-link"  %> |
-<%= link_to 'Back', restaurants_path, class: "btn btn-link"  %>
+  <% if user_signed_in? %>
+    <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-link"  %> |
+  <% end %>
+    <%= link_to 'Back', restaurants_path, class: "btn btn-link"  %>
 
 </p>
