@@ -1,12 +1,22 @@
 Rails.application.routes.draw do
-  resources :bookings
+    
+  get 'auth0/callback'
+
+  get 'auth0/failure'
+
   devise_for :users
+  
   resources :restaurants
+  resources :bookings
+
   get 'pages/about'
 
   get 'pages/contact'
 
   root 'restaurants#index'
+
+  get "/auth/auth0/callback" => "auth0#callback"
+  get "/auth/failure" => "auth0#failure"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

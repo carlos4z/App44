@@ -8,6 +8,9 @@ gem 'carrierwave'
 
 gem 'devise'
 
+gem 'omniauth', '~> 1.2'
+gem 'omniauth-auth0', '~> 1.1'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 
